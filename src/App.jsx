@@ -70,37 +70,34 @@ function App() {
           transition={{ duration: 0.5 }}
           className="flex flex-col min-h-screen bg-background text-foreground"
         >
-          <Header onBackToHome={handleBackToHome} onMovieClick={handleMovieClick} />
-          <div className="flex flex-1 pt-16">
-            <Sidebar onGenreClick={handleGenreClick} />
-            <main className="flex-1 p-4 space-y-8 ml-64">
-              {isLoading ? (
-                <div className="flex justify-center items-center h-screen">
-                  <motion.div
-                    initial={{ scale: 0.5, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 1 }}
-                    transition={{ duration: 0.5 }}
-                    className="text-2xl font-bold text-primary"
-                  >
-                    Memuat...
-                  </motion.div>
-                </div>
-              ) : selectedMovieId ? (
-                <MovieDetails movieId={selectedMovieId} onMovieClick={handleMovieClick} />
-              ) : selectedGenre ? (
-                <GenreMovies
-                  genreId={selectedGenre.id}
-                  genreName={selectedGenre.name}
-                  onMovieClick={handleMovieClick}
-                />
-              ) : (
-                <>
-                  {featuredMovies.length > 0 && <FeaturedMovie movies={featuredMovies} onMovieClick={handleMovieClick} />}
-                  <MovieGrid movies={trendingMovies} onMovieClick={handleMovieClick} />
-                </>
-              )}
-            </main>
-          </div>
+          <Header onBackToHome={handleBackToHome} onMovieClick={handleMovieClick} onGenreClick={handleGenreClick} />
+          <main className="flex-1 p-4 space-y-8 pt-20">
+            {isLoading ? (
+              <div className="flex justify-center items-center h-screen">
+                <motion.div
+                  initial={{ scale: 0.5, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ duration: 0.5 }}
+                  className="text-2xl font-bold text-primary"
+                >
+                  Memuat...
+                </motion.div>
+              </div>
+            ) : selectedMovieId ? (
+              <MovieDetails movieId={selectedMovieId} onMovieClick={handleMovieClick} />
+            ) : selectedGenre ? (
+              <GenreMovies
+                genreId={selectedGenre.id}
+                genreName={selectedGenre.name}
+                onMovieClick={handleMovieClick}
+              />
+            ) : (
+              <>
+                {featuredMovies.length > 0 && <FeaturedMovie movies={featuredMovies} onMovieClick={handleMovieClick} />}
+                <MovieGrid movies={trendingMovies} onMovieClick={handleMovieClick} />
+              </>
+            )}
+          </main>
         </motion.div>
       )}
     </AnimatePresence>
