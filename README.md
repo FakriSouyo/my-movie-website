@@ -58,3 +58,11 @@ Untuk menjalankan MovieFlix di mesin lokal Anda, ikuti langkah-langkah berikut:
 
 Kontribusi selalu diterima dengan baik! Jika Anda ingin berkontribusi pada proyek ini, silakan buat pull request atau buka issue untuk diskusi fitur baru atau perbaikan bug.
 
+## Lisensi
+
+Proyek ini dilisensikan di bawah Lisensi MIT. Lihat file [LICENSE](LICENSE) untuk detailnya.
+
+## Kontak
+
+Jika Anda memiliki pertanyaan atau saran, jangan ragu untuk menghubungi kami di [email@example.com](mailto:email@example.com).
+

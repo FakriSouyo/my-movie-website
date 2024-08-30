@@ -1,9 +1,14 @@
 import React from 'react'
+import { useLanguage } from '../contexts/LanguageContext'
+import { translations } from '../utils/translations'
 
 const MovieGrid = ({ movies, onMovieClick }) => {
+  const { language } = useLanguage();
+  const t = translations[language];
+
   return (
     <section className="mt-8">
-      <h3 className="text-2xl md:text-3xl font-bold font-heading mb-6 text-primary">Film Trending</h3>
+      <h3 className="text-2xl md:text-3xl font-bold font-heading mb-6 text-primary">{t.trendingMovies}</h3>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6">
         {movies.map((movie) => (
           <div 
@@ -26,7 +31,7 @@ const MovieGrid = ({ movies, onMovieClick }) => {
                   </span>
                 </div>
                 <button className="bg-primary hover:bg-primary/80 text-white font-semibold text-xs md:text-sm py-1 md:py-2 px-2 md:px-4 rounded-full transition-colors">
-                  Lihat Detail
+                  {t.viewDetail}
                 </button>
               </div>
             </div>
