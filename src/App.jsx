@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Header from './components/Header'
+import Sidebar from './components/Sidebar'
 import MovieGrid from './components/MovieGrid'
 import FeaturedMovie from './components/FeaturedMovie'
 import MovieDetails from './components/MovieDetails'
@@ -18,6 +19,11 @@ function App() {
   const [selectedGenre, setSelectedGenre] = useState(null)
   const [showLanding, setShowLanding] = useState(true)
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false)
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen)
+  }
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -78,7 +84,16 @@ function App() {
             transition={{ duration: 0.5 }}
             className="flex flex-col min-h-screen bg-background text-foreground"
           >
-            <Header onBackToHome={handleBackToHome} onMovieClick={handleMovieClick} onGenreClick={handleGenreClick} />
+            <Header 
+              onBackToHome={handleBackToHome} 
+              onMovieClick={handleMovieClick} 
+              toggleSidebar={toggleSidebar} 
+            />
+            <Sidebar 
+              isOpen={isSidebarOpen} 
+              onClose={() => setIsSidebarOpen(false)} 
+              onGenreClick={handleGenreClick} 
+            />
             <main className="flex-1 p-4 space-y-8 pt-20">
               {isLoading ? (
                 <div className="flex justify-center items-center h-screen">
