@@ -27,7 +27,7 @@ Untuk menjalankan MovieFlix di mesin lokal Anda, ikuti langkah-langkah berikut:
 
 2. Clone repositori ini:
    ```
-   git clone https://github.com/username/movieflix.git
+   git clone https://github.com/FakriSouyo/my-movie-website.git
    cd movieflix
    ```
 
